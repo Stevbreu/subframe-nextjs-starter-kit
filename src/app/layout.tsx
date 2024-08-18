@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Subframe Next.js Starter",
@@ -12,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -26,8 +27,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-
-      <body>{children}</body>
+      <body>
+        <NextThemesProvider>{children}</NextThemesProvider>
+      </body>
     </html>
   );
 }

@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@subframe/core": "^1.118.0",
+    "@subframe/core": "^1.119.0",
     "classnames": "^2.3.2",
     "next": "^14.2.3",
+    "next-theme": "^0.1.5",
+    "next-themes": "^0.3.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "save": "^2.9.0"
   },
   "devDependencies": {
     "@types/node": "^20",

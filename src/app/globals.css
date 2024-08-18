@@ -12,3 +12,69 @@ html {
 body {
   flex-grow: 1;
 }
+
+[data-theme="dark"] {
+  --brand-50: rgb(23, 23, 23);
+  --brand-100: rgb(38, 38, 38);
+  --brand-200: rgb(64, 64, 64);
+  --brand-300: rgb(38, 38, 38);
+  --brand-400: rgb(115, 115, 115);
+  --brand-500: rgb(163, 163, 163);
+  --brand-600: rgb(212, 212, 212);
+  --brand-700: rgb(229, 229, 229);
+  --brand-800: rgb(245, 245, 245);
+  --brand-900: rgb(250, 250, 250);
+
+  --neutral-0: rgb(10, 10, 10);
+  --neutral-50: rgb(23, 23, 23);
+  --neutral-100: rgb(38, 38, 38);
+  --neutral-200: rgb(64, 64, 64);
+  --neutral-300: rgb(82, 82, 82);
+  --neutral-400: rgb(115, 115, 115);
+  --neutral-500: rgb(163, 163, 163);
+  --neutral-600: rgb(212, 212, 212);
+  --neutral-700: rgb(229, 229, 229);
+  --neutral-800: rgb(245, 245, 245);
+  --neutral-900: rgb(250, 250, 250);
+  --neutral-950: rgb(255, 255, 255);
+
+  --error-50: rgb(60, 24, 26);
+  --error-100: rgb(72, 26, 29);
+  --error-200: rgb(84, 27, 31);
+  --error-300: rgb(103, 30, 34);
+  --error-400: rgb(130, 32, 37);
+  --error-500: rgb(170, 36, 41);
+  --error-600: rgb(229, 72, 77);
+  --error-700: rgb(242, 85, 90);
+  --error-800: rgb(255, 99, 105);
+  --error-900: rgb(254, 236, 238);
+
+  --warning-50: rgb(57, 26, 3);
+  --warning-100: rgb(68, 31, 4);
+  --warning-200: rgb(79, 35, 5);
+  --warning-300: rgb(95, 42, 6);
+  --warning-400: rgb(118, 50, 5);
+  --warning-500: rgb(148, 62, 0);
+  --warning-600: rgb(247, 104, 8);
+  --warning-700: rgb(255, 128, 43);
+  --warning-800: rgb(255, 139, 62);
+  --warning-900: rgb(254, 234, 221);
+
+  --success-50: rgb(19, 40, 25);
+  --success-100: rgb(22, 48, 29);
+  --success-200: rgb(25, 57, 33);
+  --success-300: rgb(29, 68, 39);
+  --success-400: rgb(36, 85, 48);
+  --success-500: rgb(47, 110, 59);
+  --success-600: rgb(70, 167, 88);
+  --success-700: rgb(85, 180, 103);
+  --success-800: rgb(99, 193, 116);
+  --success-900: rgb(229, 251, 235);
+
+  --brand-primary: var(--brand-600);
+  --default-font: var(--neutral-900);
+  --subtext-color: var(--neutral-500);
+  --neutral-border: var(--neutral-200);
+  --white: var(--neutral-0);
+  --default-background: var(--neutral-0);
+}

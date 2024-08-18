@@ -1,11 +1,16 @@
+const subframeConfig = require("./src/subframe/tailwind.config.js");
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/subframe/**/*.{tsx,ts,js,jsx}",
   ],
+  darkMode: "selector",
   theme: {
     extend: {
+      ...subframeConfig.theme.extend,
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
