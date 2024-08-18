@@ -31,7 +31,7 @@ const OAuthSocialButtonRoot = React.forwardRef<
   return (
     <button
       className={SubframeCore.twClassNames(
-        "group/f1948f75 flex h-10 cursor-pointer items-center justify-center gap-2 rounded border border-solid border-neutral-border bg-black px-4 hover:bg-neutral-50 active:bg-black disabled:cursor-default disabled:bg-black hover:disabled:cursor-default hover:disabled:bg-black active:disabled:cursor-default active:disabled:bg-black",
+        "group/f1948f75 flex h-10 cursor-pointer items-center justify-center gap-2 rounded border border-solid border-neutral-border bg-white px-4 hover:bg-neutral-50 active:bg-white disabled:cursor-default disabled:bg-white hover:disabled:cursor-default hover:disabled:bg-white active:disabled:cursor-default active:disabled:bg-white",
         className
       )}
       ref={ref as any}

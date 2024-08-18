@@ -71,11 +71,9 @@ export default function Sidebar() {
           <ChatChannelsMenu.Item selected={true} icon="FeatherSparkles">
             Übersicht KPI
           </ChatChannelsMenu.Item>
-          <Link href="/overview/appointment">
-            <ChatChannelsMenu.Item icon="FeatherCalendar">
-              Termine
-            </ChatChannelsMenu.Item>
-          </Link>
+          <ChatChannelsMenu.Item icon="FeatherCalendar">
+            Termine
+          </ChatChannelsMenu.Item>
           <ChatChannelsMenu.Item icon="FeatherListChecks">
             Aufgaben
           </ChatChannelsMenu.Item>

@@ -42,7 +42,7 @@ const CheckboxCardRoot = React.forwardRef<HTMLElement, CheckboxCardRootProps>(
             )}
           >
             <SubframeCore.Icon
-              className="hidden text-[14px] font-[400] leading-[14px] text-black group-aria-[checked=true]/de0b4dfb:inline-flex group-aria-[checked=true]/de0b4dfb:text-[16px] group-aria-[checked=true]/de0b4dfb:font-[400] group-aria-[checked=true]/de0b4dfb:leading-[16px] group-disabled/de0b4dfb:text-neutral-400"
+              className="hidden text-[14px] font-[400] leading-[14px] text-white group-aria-[checked=true]/de0b4dfb:inline-flex group-aria-[checked=true]/de0b4dfb:text-[16px] group-aria-[checked=true]/de0b4dfb:font-[400] group-aria-[checked=true]/de0b4dfb:leading-[16px] group-disabled/de0b4dfb:text-neutral-400"
               name="FeatherCheck"
             />
           </div>
