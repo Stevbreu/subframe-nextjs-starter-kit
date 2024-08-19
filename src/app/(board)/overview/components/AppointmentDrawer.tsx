@@ -6,10 +6,10 @@ import { TextField } from "@/subframe/components/TextField";
 import { Switch } from "@/subframe/components/Switch";
 import { Select } from "@/subframe/components/Select";
 import { PropertiesRow } from "@/subframe/components/PropertiesRow";
-import { Calendar } from "@/subframe/components/Calendar";
+import { Calendar } from "/src/components/CalendarWithTime";
 import * as SubframeCore from "@subframe/core";
 import { Button } from "@/subframe/components/Button";
-import { formatDate } from "/src/utils/FormateDate";
+import { formatDateTime } from "/src/utils/FormateDate";
 import { calculateDuration } from "/src/utils/CalculateDuration";
 
 export function AppointmentDrawer({
@@ -23,10 +23,8 @@ export function AppointmentDrawer({
   const [description, setDescription] = React.useState("");
   const [location, setLocation] = React.useState("");
   const [allDay, setAllDay] = React.useState(false);
-  const [startDate, setStartDate] = React.useState(new Date());
-  const [startTime, setStartTime] = React.useState("");
-  const [endDate, setEndDate] = React.useState(new Date());
-  const [endTime, setEndTime] = React.useState("");
+  const [startDateTime, setStartDateTime] = React.useState(new Date());
+  const [endDateTime, setEndDateTime] = React.useState(new Date());
   const [error, setError] = useState("");
   const [duration, setDuration] = useState("");
   const [categories, setCategories] = useState([
@@ -37,21 +35,19 @@ export function AppointmentDrawer({
   const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
-    if (endDate < startDate) {
+    if (endDateTime < startDateTime) {
       setError("Das Enddatum kann nicht vor dem Startdatum liegen.");
-      setEndDate(startDate);
+      setEndDateTime(startDateTime);
     } else {
       setError("");
       const calculatedDuration = calculateDuration(
-        startDate,
-        endDate,
-        allDay,
-        startTime,
-        endTime
+        startDateTime,
+        endDateTime,
+        allDay
       );
       setDuration(calculatedDuration);
     }
-  }, [startDate, endDate, startTime, endTime, allDay]);
+  }, [startDateTime, endDateTime, allDay]);
 
   return (
     <DrawerLayout open={open} onOpenChange={setOpen}>
@@ -143,11 +139,24 @@ export function AppointmentDrawer({
               >
                 <div className="flex flex-col items-start gap-1 rounded border border-solid border-neutral-border bg-default-background px-3 py-3 shadow-overlay">
                   <Calendar
-                    mode={"single"}
-                    selected={new Date()}
-                    onSelect={(date: Date | undefined) => {
-                      setStartDate(date);
+                    mode="single"
+                    selected={startDateTime}
+                    onSelect={(date) => {
+                      if (date) {
+                        const newDateTime = new Date(date);
+                        newDateTime.setHours(endDateTime.getHours());
+                        newDateTime.setMinutes(endDateTime.getMinutes());
+                        setStartDateTime(newDateTime);
+                      }
                     }}
+                    onTimeChange={(time) => {
+                      const [hours, minutes] = time.split(":").map(Number);
+                      const newDateTime = new Date(startDateTime);
+                      newDateTime.setHours(hours);
+                      newDateTime.setMinutes(minutes);
+                      setStartDateTime(newDateTime);
+                    }}
+                    initialTime={endDateTime.toTimeString().slice(0, 5)}
                   />
                 </div>
               </SubframeCore.Popover.Content>
@@ -156,7 +165,7 @@ export function AppointmentDrawer({
           <TextField label="" helpText="">
             <TextField.Input
               placeholder=""
-              value={formatDate(startDate, allDay)}
+              value={formatDateTime(startDateTime, allDay)}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {}}
             />
           </TextField>
@@ -179,11 +188,24 @@ export function AppointmentDrawer({
               >
                 <div className="flex flex-col items-start gap-1 rounded border border-solid border-neutral-border bg-default-background px-3 py-3 shadow-overlay">
                   <Calendar
-                    mode={"single"}
-                    selected={new Date()}
-                    onSelect={(date: Date | undefined) => {
-                      setEndDate(date);
+                    mode="single"
+                    selected={endDateTime}
+                    onSelect={(date) => {
+                      if (date) {
+                        const newDateTime = new Date(date);
+                        newDateTime.setHours(endDateTime.getHours());
+                        newDateTime.setMinutes(endDateTime.getMinutes());
+                        setEndDateTime(newDateTime);
+                      }
                     }}
+                    onTimeChange={(time) => {
+                      const [hours, minutes] = time.split(":").map(Number);
+                      const newDateTime = new Date(endDateTime);
+                      newDateTime.setHours(hours);
+                      newDateTime.setMinutes(minutes);
+                      setEndDateTime(newDateTime);
+                    }}
+                    initialTime={endDateTime.toTimeString().slice(0, 5)}
                   />
                 </div>
               </SubframeCore.Popover.Content>
@@ -192,7 +214,7 @@ export function AppointmentDrawer({
           <TextField label="" helpText="">
             <TextField.Input
               placeholder=""
-              value={formatDate(endDate, allDay)}
+              value={formatDateTime(endDateTime, allDay)}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {}}
             />
           </TextField>
