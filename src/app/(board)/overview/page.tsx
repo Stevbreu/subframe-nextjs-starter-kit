@@ -1,12 +1,26 @@
 "use client";
+
+import React from "react";
 import { SidebarRailWithIcons } from "@/subframe/components/SidebarRailWithIcons";
 import * as SubframeCore from "@subframe/core";
 import { IconButton } from "@/subframe/components/IconButton";
 import { Breadcrumbs } from "@/subframe/components/Breadcrumbs";
 import Sidebar from "./components/Sidebar";
 import DynamicBreadcrumbs from "../components/DynamicBreadcrumbs";
+import { CustomHomeCardRed } from "@/subframe/components/CustomHomeCardRed";
+import { CustomHomeCardGreen } from "@/subframe/components/CustomHomeCardGreen";
+import { CustomHomeCardYellow } from "@/subframe/components/CustomHomeCardYellow";
+import CustomCirsDrawer from "./components/CustomCIRSDrawer";
+import CustomActionDrawer from "./components/CustomActionDrawer";
+import CustomStorageDrawer from "./components/CustomStorageDrawer";
 
 export default function OverviewPage() {
+  const [openCustomActionDrawer, setOpenCustomActionDrawer] =
+    React.useState(false);
+  const [openCustomCirsDrawer, setOpenCustomCirsDrawer] = React.useState(false);
+  const [openCustomStorageDrawer, setOpenCustomStorageDrawer] =
+    React.useState(false);
+
   return (
     <div className="flex h-full w-full items-center gap-2">
       <div className="flex grow shrink-0 basis-0 items-start self-stretch bg-default-background">
@@ -22,12 +36,16 @@ export default function OverviewPage() {
               </div>
               <DynamicBreadcrumbs />
             </div>
+
             <IconButton
               variant="brand-tertiary"
               size="small"
               icon="FeatherInbox"
-              onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+              onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+                setOpenCustomCirsDrawer(true);
+              }}
             />
+
             <IconButton
               size="small"
               icon="FeatherStar"
@@ -44,94 +62,46 @@ export default function OverviewPage() {
               onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
             />
           </div>
-          <div className="flex w-full flex-wrap items-start gap-6 rounded bg-default-background px-12 py-12">
-            <div className="flex min-w-[160px] grow shrink-0 basis-0 flex-col items-start gap-4 overflow-hidden rounded bg-neutral-50 px-6 py-6 shadow-overlay">
-              <SubframeCore.Icon
-                className="text-heading-3 font-heading-3 text-default-font"
-                name="FeatherUsers"
-              />
-              <div className="flex w-full flex-col items-start gap-1">
-                <span className="w-full text-heading-2 font-heading-2 text-default-font">
-                  10
-                </span>
-                <span className="line-clamp-1 w-full text-body font-body text-subtext-color">
-                  Mitglieder
-                </span>
-              </div>
-            </div>
-            <div className="flex min-w-[160px] grow shrink-0 basis-0 flex-col items-start gap-4 rounded bg-neutral-50 px-6 py-6 shadow-overlay">
-              <SubframeCore.Icon
-                className="text-heading-3 font-heading-3 text-default-font"
-                name="FeatherCalendar"
-              />
-              <div className="flex w-full flex-col items-start gap-1">
-                <span className="w-full text-heading-2 font-heading-2 text-default-font">
-                  15 Termine
-                </span>
-                <span className="line-clamp-1 w-full text-body font-body text-subtext-color">
-                  Termine diese Woche
-                </span>
-              </div>
-            </div>
-            <div className="flex min-w-[160px] grow shrink-0 basis-0 flex-col items-start gap-4 overflow-hidden rounded bg-neutral-50 px-6 py-6 shadow-overlay">
-              <SubframeCore.Icon
-                className="text-heading-3 font-heading-3 text-default-font"
-                name="FeatherDollarSign"
-              />
-              <div className="flex w-full flex-col items-start gap-1">
-                <span className="w-full text-heading-2 font-heading-2 text-default-font">
-                  $10+ million
-                </span>
-                <span className="line-clamp-1 w-full text-body font-body text-subtext-color">
-                  revenue generated
-                </span>
-              </div>
-            </div>
+
+          <div className="flex w-full items-start justify-center gap-2 px-12 py-12">
+            <CustomCirsDrawer
+              open={openCustomCirsDrawer}
+              setOpen={setOpenCustomCirsDrawer}
+            />
+            <CustomHomeCardRed
+              title="CIRS MELDUNG"
+              subtitle="Geben Sie eine CIRS Meldung ab."
+              icon="FeatherAlertCircle"
+              onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+                setOpenCustomCirsDrawer(true);
+              }}
+            />
+            <CustomStorageDrawer
+              open={openCustomStorageDrawer}
+              setOpen={setOpenCustomStorageDrawer}
+            />
+            <CustomHomeCardGreen
+              title="Spannung erstellen"
+              subtitle="Füllen Sie die Spannungsbox"
+              icon="FeatherDatabase"
+              onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+                setOpenCustomStorageDrawer(true);
+              }}
+            />
+            <CustomActionDrawer
+              open={openCustomActionDrawer}
+              setOpen={setOpenCustomActionDrawer}
+            />
+            <CustomHomeCardYellow
+              title="Aufgabe erstellen"
+              subtitle="Erstelle eine neue Aufgabe"
+              icon="FeatherListChecks"
+              onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+                setOpenCustomActionDrawer(true);
+              }}
+            />
           </div>
-          <div className="flex w-full flex-wrap items-start gap-6 rounded bg-default-background px-12 py-12">
-            <div className="flex min-w-[160px] grow shrink-0 basis-0 flex-col items-start gap-4 overflow-hidden rounded bg-neutral-50 px-6 py-6 shadow-overlay">
-              <SubframeCore.Icon
-                className="text-heading-3 font-heading-3 text-default-font"
-                name="FeatherMegaphone"
-              />
-              <div className="flex w-full flex-col items-start gap-1">
-                <span className="w-full text-heading-2 font-heading-2 text-default-font">
-                  10
-                </span>
-                <span className="line-clamp-1 w-full text-body font-body text-subtext-color">
-                  neue CIRS Meldungen
-                </span>
-              </div>
-            </div>
-            <div className="flex min-w-[160px] grow shrink-0 basis-0 flex-col items-start gap-4 rounded bg-neutral-50 px-6 py-6 shadow-overlay">
-              <SubframeCore.Icon
-                className="text-heading-3 font-heading-3 text-default-font"
-                name="FeatherFrame"
-              />
-              <div className="flex w-full flex-col items-start gap-1">
-                <span className="w-full text-heading-2 font-heading-2 text-default-font">
-                  2
-                </span>
-                <span className="line-clamp-1 w-full text-body font-body text-subtext-color">
-                  neue Risiken
-                </span>
-              </div>
-            </div>
-            <div className="flex min-w-[160px] grow shrink-0 basis-0 flex-col items-start gap-4 overflow-hidden rounded bg-neutral-50 px-6 py-6 shadow-overlay">
-              <SubframeCore.Icon
-                className="text-heading-3 font-heading-3 text-default-font"
-                name="FeatherAlertTriangle"
-              />
-              <div className="flex w-full flex-col items-start gap-1">
-                <span className="w-full text-heading-2 font-heading-2 text-default-font">
-                  3
-                </span>
-                <span className="line-clamp-1 w-full text-body font-body text-subtext-color">
-                  neue Beschwerden
-                </span>
-              </div>
-            </div>
-          </div>
+          <div className="flex h-px w-full flex-none flex-col items-center gap-2 bg-neutral-200" />
         </div>
       </div>
     </div>

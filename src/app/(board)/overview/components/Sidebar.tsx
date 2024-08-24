@@ -68,25 +68,49 @@ export default function Sidebar() {
       </div>
       <div className="flex w-full grow shrink-0 basis-0 items-center gap-2">
         <ChatChannelsMenu className="h-auto grow shrink-0 basis-0 self-stretch">
-          <ChatChannelsMenu.Item selected={true} icon="FeatherSparkles">
-            Übersicht KPI
-          </ChatChannelsMenu.Item>
-          <ChatChannelsMenu.Item icon="FeatherCalendar">
-            Termine
-          </ChatChannelsMenu.Item>
-          <ChatChannelsMenu.Item icon="FeatherListChecks">
-            Aufgaben
-          </ChatChannelsMenu.Item>
-          <ChatChannelsMenu.Item icon="FeatherScroll">
-            Neu Dokumente
-          </ChatChannelsMenu.Item>
-          <ChatChannelsMenu.Item
-            icon="FeatherMessageSquare"
-            rightSlot={<Badge variant="neutral">2</Badge>}
-          >
-            Neue CIRS Fälle
-          </ChatChannelsMenu.Item>
-          <ChatChannelsMenu.Folder label="Favorites">
+          {/* Zur Übersicht KPI */}
+          <Link href="/overview" className="w-full">
+            <ChatChannelsMenu.Item selected={true} icon="FeatherSparkles">
+              Übersicht KPI
+            </ChatChannelsMenu.Item>
+          </Link>
+
+          {/* Zur Übersicht Termine */}
+          <Link href="/overview/appointment" className="w-full">
+            <ChatChannelsMenu.Item
+              icon="FeatherCalendar"
+              rightSlot={<Badge>34</Badge>}
+            >
+              Termine
+            </ChatChannelsMenu.Item>
+          </Link>
+
+          {/* Zur Übersicht Aufgaben */}
+          <Link href="/overview/taskoverview" className="w-full">
+            <ChatChannelsMenu.Item icon="FeatherListChecks">
+              Aufgaben
+            </ChatChannelsMenu.Item>
+          </Link>
+
+          {/* Zur Übersicht Dokumente */}
+          <Link href="/overview/documentsoverview" className="w-full">
+            <ChatChannelsMenu.Item icon="FeatherScroll">
+              Neu Dokumente
+            </ChatChannelsMenu.Item>
+          </Link>
+
+          {/* Zur Übersicht CIRS */}
+          <Link href="/overview/cirsoverview" className="w-full">
+            <ChatChannelsMenu.Item
+              icon="FeatherMessageSquare"
+              rightSlot={<Badge variant="neutral">2</Badge>}
+            >
+              Neue CIRS Fälle
+            </ChatChannelsMenu.Item>
+          </Link>
+
+          {/* Zur Übersicht Favorieten-Meldungen */}
+          <ChatChannelsMenu.Folder label="Favorites" defaultOpen={false}>
             <ChatChannelsMenu.Item
               icon="FeatherHash"
               rightSlot={<Badge variant="neutral">2</Badge>}
@@ -100,7 +124,9 @@ export default function Sidebar() {
               front-end
             </ChatChannelsMenu.Item>
           </ChatChannelsMenu.Folder>
-          <ChatChannelsMenu.Folder label="Channels">
+
+          {/* Zur Übersicht Channels */}
+          <ChatChannelsMenu.Folder label="Channels" defaultOpen={false}>
             <ChatChannelsMenu.Item
               icon="FeatherHash"
               rightSlot={<Badge variant="neutral">1</Badge>}

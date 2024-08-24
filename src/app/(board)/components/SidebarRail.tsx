@@ -67,6 +67,11 @@ export default function SidebarRail() {
             Übersicht
           </SidebarRailWithIcons.NavItem>
         </Link>
+        <Link href="/chats">
+          <SidebarRailWithIcons.NavItem icon="FeatherMessageCircle">
+            Chat Seite
+          </SidebarRailWithIcons.NavItem>
+        </Link>
         <Link href="/inbox">
           <SidebarRailWithIcons.NavItem icon="FeatherInbox" selected={true}>
             Posteingang
@@ -80,9 +85,6 @@ export default function SidebarRail() {
         </SidebarRailWithIcons.NavItem>
         <SidebarRailWithIcons.NavItem icon="FeatherPhoneIncoming">
           SOP Seite
-        </SidebarRailWithIcons.NavItem>
-        <SidebarRailWithIcons.NavItem icon="FeatherMessageCircle">
-          Chat Seite
         </SidebarRailWithIcons.NavItem>
         <SidebarRailWithIcons.NavItem icon="FeatherUsers">
           Mitglieder

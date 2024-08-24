@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@subframe/core": "^1.119.0",
+    "@subframe/core": "^1.121.0",
     "classnames": "^2.3.2",
+    "emoji-picker-react": "^4.11.1",
     "next": "^14.2.3",
     "next-theme": "^0.1.5",
     "next-themes": "^0.3.0",

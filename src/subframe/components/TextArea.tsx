@@ -71,7 +71,7 @@ const TextAreaRoot = React.forwardRef<HTMLElement, TextAreaRootProps>(
         {children ? (
           <div
             className={SubframeCore.twClassNames(
-              "flex w-full grow shrink-0 basis-0 flex-col items-start rounded border border-solid border-neutral-border bg-default-background px-1 group-focus-within/4ec05ee8:border group-focus-within/4ec05ee8:border-solid group-focus-within/4ec05ee8:border-brand-primary",
+              "flex w-full grow shrink-0 basis-0 flex-col items-start rounded-md border border-solid border-neutral-border bg-default-background px-1 group-focus-within/4ec05ee8:border group-focus-within/4ec05ee8:border-solid group-focus-within/4ec05ee8:border-brand-primary",
               {
                 "border border-solid border-neutral-100 bg-neutral-100 group-hover/4ec05ee8:border group-hover/4ec05ee8:border-solid group-hover/4ec05ee8:border-neutral-border group-focus-within/4ec05ee8:bg-default-background":
                   variant === "filled",

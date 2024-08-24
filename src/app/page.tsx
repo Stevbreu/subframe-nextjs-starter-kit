@@ -23,7 +23,6 @@ function NewPage() {
         />
       </Link>
       <DarkModeSelect />
-      <TimePicker selectedTime={time} onTimeChange={handleTimeChange} />
     </div>
   );
 }
